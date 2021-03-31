@@ -23,7 +23,7 @@ import {
   settings
 } from '../utils/constants.js'
 
-const api = new Api('7528a356-9b85-4344-aeef-7ef3cdf96739', 'cohort-21');
+const api = new Api('7528a356-9b85-4344-aeef-7ef3cdf96739', 'https://mesto.nomoreparties.co/v1/cohort-21/');
 
 let userId;
 
@@ -134,11 +134,8 @@ const windowPopup = new PopupWithForm({
   popupSelector: '#window',
   handleFormSubmit: (data, button) => {
     button.textContent = 'Сохранение...'
-    const item = {
-      name: denomination.value,
-      link: link.value
-    };
-    api.postCard(item)
+    console.log(data)
+    api.postCard(data)
     .then((res) => {
       defaultCardList.prependItem(createCard(res));
     })

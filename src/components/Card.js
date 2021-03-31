@@ -28,7 +28,7 @@ export class Card {
 
     _isLiked() {
         if (this._data.likes.some(item => item._id === this._userId)) {
-            this._likeButton.classList.add('.element__heart-active');
+            this._likeButton.classList.add('element__heart-active');
         }
     }
   
