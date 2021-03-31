@@ -3,6 +3,8 @@ export class FormValidator {
   constructor(settings, formSelector) {
       this._settings = settings;
       this._formSelector = document.querySelector(formSelector);
+      this._inputList = Array.from(this._formSelector.querySelectorAll(this._settings.inputSelector));
+      this._buttonElement = this._formSelector.querySelector(this._settings.submitButtonSelector);
   }
 
   _showInputError (formElement, inputElement, errorMessage, _settings) {
@@ -44,19 +46,17 @@ export class FormValidator {
     };
     
     _setEventListeners (formElement, _settings) {
-      const inputList = Array.from(formElement.querySelectorAll(this._settings.inputSelector));
-      const buttonElement = formElement.querySelector(this._settings.submitButtonSelector);
       formElement.addEventListener('reset', () => {
-        inputList.forEach((inputElement) => {
+        this._inputList.forEach((inputElement) => {
             this._hideInputError(formElement, inputElement, _settings)
-            this._toggleButtonState(inputList, buttonElement, _settings);
+            this._toggleButtonState(this._inputList, this._buttonElement, _settings);
         })
     });
-      this._toggleButtonState(inputList, buttonElement, this._settings);
-      inputList.forEach((inputElement) => {
+      this._toggleButtonState(this._inputList, this._buttonElement, this._settings);
+      this._inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
           this._isValid(formElement, inputElement, this._settings)
-          this._toggleButtonState(inputList, buttonElement, this._settings);
+          this._toggleButtonState(this._inputList, this._buttonElement, this._settings);
         });
       });
     };
