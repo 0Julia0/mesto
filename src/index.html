@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+    <title>Место</title>
+  </head>
+  <body>
+      <div class="page">
+        <header class="header">
+            <img class="header__logo" src="./images/logo.svg" alt="Место">
+        </header>
+        <main class="content">
+            <section class="profile">
+                <div class="profile__group">
+                    <span class="profile__opacity"><img class="profile__update" src="./images/update.svg" alt="Обновить"></span>
+                    <img class="profile__avatar" src="./images/photoavatar.jpg" alt="Аватар">
+                </div>
+                <div class="profile__text">
+                    <div class="profile__info">
+                        <h1 class="profile__name">Долгий Пупс</h1>
+                        <p class="profile__job">Начинающий чародей</p>
+                    </div>
+                    <button class="profile__edit" aria-label="edit" type="button"></button>
+                </div>
+                <button class="profile__add-button" type="button"></button>
+            </section>
+            <section class="elements">
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+        </footer>
+        <section class="popup" id="profile-popup">
+            <div class="popup__container" id="popup-container">
+                <button class="popup__close-button " id="popup-icon" aria-label="close" type="button"></button>
+                <h1 class="popup__title">Редактировать профиль</h1>
+                <form class="popup__form" id="profile-form" name="form" novalidate>
+                    <input id="name" class="popup__info" placeholder="Имя" type="text" name="name" value="" required minlength="2" maxlength="40"/>
+                    <span class="name-error popup__input-error"></span>
+                    <input id="job" class="popup__info" placeholder="Занятие" type="text" name="job" value="" required minlength="2" maxlength="200"/>
+                    <span class="job-error popup__input-error"></span>
+                    <button class="popup__button" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </section>
+        <section class="popup" id="window">
+            <div class="popup__container" id="window-container">
+                <button class="popup__close-button" id="window-icon" aria-label="close" type="button"></button>
+                <h1 class="popup__title">Новое место</h1>
+                <form class="popup__form" id="window-form" name="form" novalidate>
+                    <input id="denomination" class="popup__info" placeholder="Название" type="text" name="denomination" value="" required minlength="2" maxlength="30"/>
+                    <span class="denomination-error popup__input-error"></span>
+                    <input id="link" class="popup__info" placeholder="Ссылка на картинку" type="url" name="link" value="" required/>
+                    <span class="link-error popup__input-error"></span>
+                    <button class="popup__button" type="submit">Создать</button>
+                </form>
+            </div>
+        </section>
+        <section class="popup" id="update">
+            <div class="popup__container" id="update-container">
+                <button class="popup__close-button" id="update-icon" aria-label="close" type="button"></button>
+                <h1 class="popup__title">Обновить аватар</h1>
+                <form class="popup__form" id="update-form" name="form" novalidate>
+                    <input id="avatar" class="popup__info" placeholder="Новый аватар" type="url" name="avatar" value="" required/>
+                    <span class="avatar-error popup__input-error"></span>
+                    <button class="popup__button" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </section>
+        <section class="popup" id="delete">
+            <div class="popup__container" id="delete-container">
+                <button class="popup__close-button" id="delete-icon" aria-label="close" type="button"></button>
+                <h1 class="popup__title">Вы уверены?</h1>
+                <button class="popup__button" type="submit">Да</button>
+            </div>
+        </section>
+        <section class="popup" id="photo">
+            <div class="popup__container" id="photo-container">
+                <button class="popup__close-button" id="photo-icon" aria-label="close" type="button"></button>
+                <img class="popup__photo" src="./images/logo.svg" alt="Изображение">
+                <p class="popup__text"></p>
+            </div>
+        </section>
+        <template class="template">
+            <article class="element">
+                <div class="element__front">
+                    <button class="element__remove" aria-label="remove" type="button"></button>
+                    <img class="element__photo" src="./images/logo.svg" alt="Изображение">
+                </div>
+                <div class="element__group">
+                    <p class="element__text"></p>
+                    <div class="element__info">
+                        <button class="element__heart" aria-label="like" type="button"></button>
+                        <p class="element__number"></p>
+                    </div>
+                </div>
+            </article> 
+        </template>
+      </div>
+  </body>
+  </html>
