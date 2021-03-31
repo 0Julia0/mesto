@@ -85,7 +85,7 @@ export class Card {
             });
         }
         this._likeButton.addEventListener('click', () => {
-            this._likeToggler(data)
+            this._likeToggler()
         });
   
         this._element.querySelector('.element__photo').addEventListener('click', () => {
